@@ -3,12 +3,16 @@ import { NavLink } from 'react-router-dom'
 
 // mui
 import DragHandleIcon from '@mui/icons-material/DragHandle';
+import CloseIcon from '@mui/icons-material/Close';
 
 // css
 import "../App.css"
 
 // image
 import logo from "../assets/images/logo.jpg"
+
+// framer-motion
+import { AnimatePresence, motion as m } from 'framer-motion';
 
 // styles
 const activeStyle = {
@@ -20,15 +24,26 @@ const hamburgerStyle = {
 }
 
 function Header() {
-  const [isShown,setIsShown] = useState(true)
+  const [isShown,setIsShown] = useState(false)
   return (
     <header>
         <div className='nav-wrapper'>
           <NavLink to="/"><img src={logo} alt='logo' /></NavLink>
-          <button className='hamburger' onClick={() => setIsShown(!isShown)}><DragHandleIcon style={hamburgerStyle} /></button>
+          <button 
+          className='hamburger' 
+          onClick={() => setIsShown(!isShown)}
+          >
+            {isShown ? <CloseIcon style={hamburgerStyle}/> : <DragHandleIcon style={hamburgerStyle} />}
+          </button>
         </div>
         
-        <nav className={isShown ? null : "hidden"}>
+        <m.nav 
+        className={isShown ? null : "hidden"}
+        initial={{opacity:0}}
+        animate={{opacity:1}}
+        exit={{opacity:0}}
+        >
+      
           <ul>
             <NavLink 
             to="stories"  
@@ -49,10 +64,8 @@ function Header() {
             >Pricing</NavLink>
             
           </ul>
-            
-
           <button className={isShown ? null : "hidden"}>GET AN INVITE</button>
-        </nav>
+        </m.nav>
         
 
   </header>

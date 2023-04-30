@@ -50,6 +50,7 @@ nav > ul {
     display: flex;
     align-items: center;
     gap: 2.3rem;
+    transition: 1s;
 }
 
 .nav-link{

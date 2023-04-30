@@ -15,6 +15,10 @@ import { tableData } from "../assets/tableData"
 import BasicTable from "../components/Table"
 import SmallTable from "../components/SmallTable";
 
+// framer-motion
+import { motion as m } from "framer-motion";
+
+
 function Pricing() {
   const [isMonthly, setIsMonthly] = useState(true)
 
@@ -24,7 +28,11 @@ function Pricing() {
 
 
   return (
-    <>
+    <m.div
+    initial={{opacity:0}}
+    animate={{opacity:1}}
+    exit={{opacity:0}}
+    >
       <section className="features-header">
         <div className="features-info">
           <h1>PRICING</h1>
@@ -89,7 +97,7 @@ function Pricing() {
           <h2>We’re in beta. Get your invite today!</h2>
           <Link to="#" >GET AN INVITE <EastIcon /></Link>
       </section>  
-    </>
+    </m.div>
     
   )
 }

@@ -9,9 +9,16 @@ import { data } from "../assets/data"
 // components
 import Story from "../components/Story";
 
+// framer-motion
+import { motion as m } from "framer-motion";
+
 function Stories() {
   return (
-    <>
+    <m.div
+    initial={{opacity:0}}
+    animate={{opacity:1}}
+    exit={{opacity:0}}
+    >
       <section className='big-story' >
 
         <div className='stories-wrapper'>
@@ -47,7 +54,7 @@ function Stories() {
             return <Story key={item.id} data={item} />
           })}
         </section>
-    </>
+    </m.div>
     
   )
 }

@@ -16,6 +16,9 @@ import { feauturesData } from "../assets/featuresData"
 import Box from "../components/Box";
 import Feature from "../components/Feature";
 
+// framer-motion
+import { motion as m } from "framer-motion";
+
 // styles
 const style = {
   fontSize: "1.5rem"
@@ -28,7 +31,11 @@ const styleLink ={
 
 function Home() {
   return (
-    <main>
+    <m.main
+    initial={{opacity:0}}
+    animate={{opacity:1}}
+    exit={{opacity:0}}
+    >
 
       <section className="container">
         <div className='info black'>
@@ -70,7 +77,7 @@ function Home() {
         })}
       </section>
       
-    </main>
+    </m.main>
   )
 }
 

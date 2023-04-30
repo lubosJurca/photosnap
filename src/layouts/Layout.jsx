@@ -7,6 +7,8 @@ import "../App.css"
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
+import { AnimatePresence } from 'framer-motion'
+
 
 
 
@@ -14,7 +16,9 @@ function Layout() {
   return (
     <div className='app'>
       <Header />
-      <Outlet />
+      <AnimatePresence>
+        <Outlet />
+      </AnimatePresence>
       <Footer />
     </div>
     
